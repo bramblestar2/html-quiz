@@ -1,0 +1,34 @@
+{
+	"title": "Some Quiz",
+	"questions":
+	[
+		{
+			"question": "What is 1 + 1?",
+			"type": "single",
+			"options": [
+				"4",
+				"2",
+				"1",
+				"3"
+			],
+			"correct": "2"
+		},
+		{
+			"question": "Pick the right ooga's",
+			"type": "multiple",
+			"options": [
+				"ooga",
+				"booga",
+				"oog",
+				"boo"
+			],
+			"image": "https://cdn.wallpapersafari.com/2/57/Gd1kSg.jpg",
+			"correct": ["ooga", "booga"]
+		},
+        {
+            "question": "True or False: You are weird",
+            "type": "boolean",
+            "correct": "true"
+        }
+	]
+}

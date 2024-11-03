@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quiz</title>
+        <link rel="stylesheet" href="page.css">
+        <link rel="stylesheet" href="quizCreation.css">
+        <script src="quizCreation.js" defer></script>
+    </head>
+    <body id="root">
+        <div id="app">
+            <header id="header">
+                <button type="button" id="quiz-button">Quiz</button>
+                <button type="button" id="reset-button">Reset</button>
+                <button type="button" id="load-quiz-button">Load</button>
+                <button type="button" id="export-button">Export</button>
+            </header>
+
+            <div id="quiz-creation">
+                <div>
+                    <input type="text" id="quiz-title" placeholder="Title"></input>
+
+
+                    <div id="questions-container">
+                    </div>
+
+                    <div id="question-types">
+                        <p>Question Types</p>
+                        <div>
+                            <button type="button" class="type-button" id="add-boolean">Boolean</button>
+                            <button type="button" class="type-button" id="add-single">Single</button>
+                            <button type="button" class="type-button" id="add-multiple">Multiple</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
