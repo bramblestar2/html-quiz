@@ -5,14 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Quiz</title>
-        <link rel="stylesheet" href="Shared/page.css">
-        <link rel="stylesheet" href="index.css">
-        <script type="module" src="index.js" defer></script>
+        <link rel="stylesheet" href="./Shared/page.css">
+        <link rel="stylesheet" href="./index.css">
+        <script type="module" src="./index.js" defer></script>
     </head>
     <body id="root">
         <nav>
-            <a href="Quiz">Quiz</a>
-            <a href="Quiz/Create">Create</a>
+            <a onclick="link_navigateTo(event, 'Quiz')" href="#Quiz">Quiz</a>
+            <a onclick="link_navigateTo(event, 'Quiz/Create')" href="#Quiz/Create">Create</a>
         </nav>
         <div id="content"></div>
     </body>

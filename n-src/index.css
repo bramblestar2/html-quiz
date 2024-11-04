@@ -1,0 +1,12 @@
+:root {
+    --background-color: #222;
+    --text-color: white;
+}
+
+#root {
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
