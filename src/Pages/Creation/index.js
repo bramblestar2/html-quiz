@@ -1,35 +1,37 @@
-let quiz = {
+import './index.css';
+
+let creation_quiz = {
     title: "",
     questions: []
 }
 
 
-let quizButton = document.getElementById("quiz-button");
-let resetButton = document.getElementById("reset-button");
-let loadButton = document.getElementById("load-quiz-button");
-let exportButton = document.getElementById("export-button");
+let creation_quizButton = document.getElementById("quiz-button");
+let creation_resetButton = document.getElementById("reset-button");
+let creation_loadButton = document.getElementById("load-quiz-button");
+let creation_exportButton = document.getElementById("export-button");
 
 
-let booleanButton = document.getElementById("add-boolean");
-let singleButton = document.getElementById("add-single");
-let multipleButton = document.getElementById("add-multiple");
+let creation_booleanButton = document.getElementById("add-boolean");
+let creation_singleButton = document.getElementById("add-single");
+let creation_multipleButton = document.getElementById("add-multiple");
 
-let questionsContainer = document.getElementById("questions-container");
-let titleInput = document.getElementById("quiz-title");
+let creation_questionsContainer = document.getElementById("questions-container");
+let creation_titleInput = document.getElementById("quiz-title");
 
-quizButton.addEventListener("click", () => {
+creation_quizButton.addEventListener("click", () => {
     window.location.href = "index.html";
 });
 
 
-resetButton.addEventListener("click", () => {
-    resetValues();
-    titleInput.value = "";
-    renderQuestions();
+creation_resetButton.addEventListener("click", () => {
+    creation_resetValues();
+    creation_titleInput.value = "";
+    creation_renderQuestions();
 });
 
 
-loadButton.addEventListener("click", () => {
+creation_loadButton.addEventListener("click", () => {
     const input = document.createElement("input");
     input.type = "file";
     input.accept = ".json";
@@ -38,9 +40,9 @@ loadButton.addEventListener("click", () => {
         const reader = new FileReader();
         reader.addEventListener("load", () => {
             const data = JSON.parse(reader.result);
-            quiz = data;
-            titleInput.value = quiz.title;
-            renderQuestions();
+            creation_quiz = data;
+            creation_titleInput.value = creation_quiz.title;
+            creation_renderQuestions();
         });
         reader.readAsText(file);
     };
@@ -48,28 +50,28 @@ loadButton.addEventListener("click", () => {
 });
 
 
-exportButton.addEventListener("click", () => {
-    const data = JSON.stringify(quiz);
+creation_exportButton.addEventListener("click", () => {
+    const data = JSON.stringify(creation_quiz);
     const blob = new Blob([data], {type: "application/json"});
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `${quiz.title ? quiz.title : "Untitled"} Quiz.json`;
+    link.download = `${creation_quiz.title ? creation_quiz.title : "Untitled"} Quiz.json`;
     link.click();
 
     URL.revokeObjectURL(url);
 });
 
 
-const resetValues = () => {
-    quiz = {
+const creation_resetValues = () => {
+    creation_quiz = {
         title: "",
         questions: []
     }
 }
 
 
-const addQuestion = (type) => {
+const creation_addQuestion = (type) => {
     const question = {
         question: "",
         type: type,
@@ -82,18 +84,18 @@ const addQuestion = (type) => {
         question.correct = "";
     }
 
-    quiz.questions.push(question);
+    creation_quiz.questions.push(question);
 }
 
 
-titleInput.onchange = () => {
-    quiz.title = titleInput.value;
+creation_titleInput.onchange = () => {
+    creation_quiz.title = creation_titleInput.value;
 }
 
 
-const renderQuestions = () => {
-    questionsContainer.innerHTML = "";
-    quiz.questions.forEach((question, index) => {
+const creation_renderQuestions = () => {
+    creation_questionsContainer.innerHTML = "";
+    creation_quiz.questions.forEach((question, index) => {
         const questionForm = document.createElement("form");
         questionForm.classList.add("question-container");
 
@@ -113,8 +115,8 @@ const renderQuestions = () => {
         deleteButton.innerHTML = "Delete";
         deleteButton.classList.add("delete-question-button");
         deleteButton.onclick = () => {
-            quiz.questions.splice(index, 1);
-            renderQuestions();
+            creation_quiz.questions.splice(index, 1);
+            creation_renderQuestions();
         };
         questionForm.appendChild(deleteButton);
 
@@ -140,7 +142,7 @@ const renderQuestions = () => {
             addOptionButton.onclick = () => {
                 question.options = question.options || [];
                 question.options.push("");
-                renderQuestions();
+                creation_renderQuestions();
             };
             questionForm.appendChild(addOptionButton);
 
@@ -172,7 +174,7 @@ const renderQuestions = () => {
                     optionDeleteButton.innerHTML = "X";
                     optionDeleteButton.onclick = () => {
                         question.options.splice(optionIndex, 1);
-                        renderQuestions();
+                        creation_renderQuestions();
                     };
 
                     // Correct Selection
@@ -231,25 +233,25 @@ const renderQuestions = () => {
             questionForm.appendChild(trueFalseLabel);
         }
 
-        questionsContainer.appendChild(questionForm);
+        creation_questionsContainer.appendChild(questionForm);
     });
 }
 
 
 
-booleanButton.addEventListener("click", () => {
-    addQuestion("boolean");
-    renderQuestions();
+creation_booleanButton.addEventListener("click", () => {
+    creation_addQuestion("boolean");
+    creation_renderQuestions();
 });
 
 
-singleButton.addEventListener("click", () => {
-    addQuestion("single");
-    renderQuestions();
+creation_singleButton.addEventListener("click", () => {
+    creation_addQuestion("single");
+    creation_renderQuestions();
 });
 
 
-multipleButton.addEventListener("click", () => {
-    addQuestion("multiple");
-    renderQuestions();
+creation_multipleButton.addEventListener("click", () => {
+    creation_addQuestion("multiple");
+    creation_renderQuestions();
 });

@@ -1,3 +1,5 @@
+import './index.css';
+
 let completeData = {}
 
 let questions = [];

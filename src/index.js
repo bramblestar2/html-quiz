@@ -1,3 +1,10 @@
+import './Pages/Creation/index.js';
+import './Pages/Quiz/index.js';
+
+import './Shared/page.css';
+import './index.css';
+
+
 let stylesheets = [];
 let scripts = [];
 
@@ -14,9 +21,6 @@ async function loadPage() {
     try {
         const response = await fetch(`Pages/${page}/index.html`);
         if (response.ok) {
-            //history.pushState(null, null, `/${page}`);
-            
-
             unloadStylesheets();
             unloadScripts();
 
